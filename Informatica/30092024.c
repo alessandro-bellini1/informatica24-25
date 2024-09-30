@@ -7,9 +7,9 @@ int main(){
     float B=0;
     float quadrato=0;
 
-    printf("inserisci il primo valore");
+    printf("inserisci il primo valore ");
     scanf("%f",&A);
-    printf("inserisci il secondo valore");
+    printf("inserisci il secondo valore ");
     scanf("%f",&B);
 
     quadrato=B*B;
