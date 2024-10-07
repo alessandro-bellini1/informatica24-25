@@ -11,7 +11,9 @@ int main(){
         scanf("%d", &num);
         q=num/10;
         r=num%10;
-        if(r>0);
+        q=r/10;
+        r=r%10;
+        
 
 
         
