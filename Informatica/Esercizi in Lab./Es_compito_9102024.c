@@ -104,10 +104,6 @@ if(anno1%100==0){
         printf("\nla data non è accettabile");
     }
 
-    /*
-    5/6/2000
-    8/12/2000
-    */
     if(anno<anno1)
         printf("\nla seconda data è la più recente");
     else if(anno>anno1)
