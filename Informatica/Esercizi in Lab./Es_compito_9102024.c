@@ -103,7 +103,7 @@ if(anno1%100==0){
     else{
         printf("\nla data non è accettabile");
     }
-
+    //trovare la data più recente
     if(anno<anno1)
         printf("\nla seconda data è la più recente");
     else if(anno>anno1)
@@ -118,7 +118,10 @@ if(anno1%100==0){
             printf("\nla seconda data è la più recente");
             else if(giorno>giorno1)
             printf("\nla prima data è la più recente");
+            else
+            printf("\nle due date sono uguali");
         }
+        
     }
 
 
