@@ -8,7 +8,7 @@ printf("inserisci un numero:\nscelta:");
 scanf("%d",&num);
 num%2;
 if(num==0)
-printf("")
+printf("");
 
 
 }
