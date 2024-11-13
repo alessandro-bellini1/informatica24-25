@@ -4,20 +4,18 @@
   int main()
   {
     int Num, Conta, fibA, fibB, fibC;
-
-    printf("Inserisci un Numero: ");
-    scanf("%d", &Num);
-
     fibA = 1;
     fibB = 1;
+    while(Num <= 3){
+      printf("inserisci un valore maggiore di 3\nscelta: ");
+      scanf("%d", &Num);
+    }
     printf("%d ", fibA);
     printf("%d ", fibB);
 
     Conta = 3;
 
-
-    while(Conta < Num)
-    {
+    while(Conta < Num){
         fibC = fibA + fibB;
         printf("%d ", fibC);
         Conta++;
@@ -25,5 +23,4 @@
         fibB = fibC;
     }
     return 0;
-    
   }
