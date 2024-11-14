@@ -13,6 +13,6 @@ int main(){
         printf("Inserire un numero:\nscelta: ");
         scanf("%d", &num);
     }
-    printf("Hai inserito uno 0 il programma termina.");
+    printf("Hai inserito uno 0 il programma termina.\n");
     return 0;
 }
