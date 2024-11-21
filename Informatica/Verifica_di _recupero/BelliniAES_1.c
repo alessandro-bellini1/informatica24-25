@@ -1,0 +1,12 @@
+/*GENERATA UNA DATA TRA L’ANNO 2000 E L’ANNO 2024 AD OGGI E SAPENDO
+CHE GIACOMO HA 20 GIORNI PER CONSEGNARE IL LAVORO ASSEGNATO
+COMUNICARE LA DATA DI CONSEGNA.*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+srand(time(NULL));
+
+
+
+}
