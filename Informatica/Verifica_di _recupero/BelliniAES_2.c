@@ -6,8 +6,8 @@
 int main(){
 int num, c, multiplo;
 srand(time(NULL));
-num = rand()%19-1+1;
-c = rand()%9-1+1;
+num = rand()%(19-1)+1;
+c = rand()%(9-1)+1;
 printf("i due valori sono \nnumero: %d\nc: %d\n",num,c);
 multiplo=c+c;
     if(multiplo<num){
