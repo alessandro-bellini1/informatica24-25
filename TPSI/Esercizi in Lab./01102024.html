@@ -29,80 +29,19 @@
             </tr>
         </table>
         <br><br>
-        <h1>Progresso dell'elemento</h1>
-        <label for="file">Downloading del progresso:</label> 
-            <!--Crea un'etichetta (<label>) per descrivere l'elemento di progresso. L'attributo for="file" 
-            collega l'etichetta all'elemento <progress> con id="file", facilitando l'associazione tra il testo e l'indicatore.-->
-        <progress id="file" value="32" max="100"> 32% </progress>
-            <!--<progress>: Questo elemento rappresenta una barra di avanzamento.
-            id="file": Assegna un identificatore unico all'elemento, che può essere usato per fare riferimento ad esso, per esempio, con JavaScript.
-            value="32": Indica lo stato di avanzamento attuale, in questo caso al 32%.
-            max="100": Specifica il valore massimo della barra (100), così la barra risulta completata quando value è uguale a max.
-            32%: Il testo tra i tag <progress> viene mostrato come fallback in caso di browser che non supportano l'elemento <progress>.-->
-        <br><br>
         <ul>
             <li>latte</li>
             <li>zucchero</li>
         </ul>
         <br><hr><br>
-        <img src="img_girl.jpg" alt="vedrai una ragazza girata di spalle"><!--se scrivo ../nome del percorso dove prendere l'immagine
-            verrà scelta l'immagine dalla cartella scelta-->
-        <img src="monumenti.jpg" alt="vedrai un immagine con dei monumenti">
+        <img src="img_girl.jpg" alt="vedrai una ragazza girata di spalle">
+        <!--se scrivo ../nome del percorso dove prendere l'immagine verrà
+        scelta l'immagine dalla cartella scelta-->
+        <img src="monumenti.jpg" alt="vedrai un immagine con dei monumenti" usemap="#workmap">
         <center><mark><marquee>testo evidenziato,centrato,scorrevole</marquee></mark></center>
         <br><br>
-        <h1>TAG DEI GRUPPI</h1>
-        <h2>TAG SMALL</h2>
-        <p>NORMALE: Testo normale</p>
-        <p><small>SMALL: Testo piccolo</small></p>
-        <br>
-        <h2>TAG CODE</h2>
-        <p><code>printf("Questo è un codice")</code></p>
-        <br>
-        <h2>TAG ABBR</h2>
-        <p>Il linguaggio più famoso è <abbr title="HyperText Murkup Language">HTML</abbr></p>
-        <br>
-        <h2>TAG SUB</h2>
-        <p>La formula dell'acqua è: H<sub>2</sub>O</p>
-        <br>
-        <h2>TAG SUP</h2>
-        <p>256 equivale ad: 2<sup>8</sup></p>
-        <br>
-        <h2>TAG AUDIO</h2>
-        <audio controls></audio><source src="horse.ogg"type"audio/ogg></audio>
-        <br>
-        <h2>TAG ASIDE</h2>
-        <p>Ieri sono stato a Milano
-        <aside>Milano è una città italiana capoluogo della regione Lombardia</aside>
-        </p>
-        <br>
-        <h2>TAG SUMMARY</h2>
-        <details>
-            <summary>Menù numero 1</summary>
-            <p>Menù numero 1 esteso</p>
-        </details>
-        <details>
-            <summary>Menù numero 2</summary>
-            <p>Menù numero 2 esteso</p>
-        </details>
-        <br>
-        <h2>TAG NAV</h2>
-        <nav>
-            <a href="/google/">GOOGLE</a>
-        </nav>
-        <br>
-        <h2>TAG MAIN e ARTICLE</h2>
-        <main>
-            <h3>Questo sito è professionale</h3>
-            <p>Lo userai per le tue difficoltà</p>
-            <article>
-                <h3>GOOGLE</h3>
-                <p>è un motore di ricerca</p>
-            </article>
-        </main>
-        <br>
-        <h2>TAG UL</h2>
-        <ul type="square"><li>ciao</li></ul>
-        <ol type="a"><li>ciao</li></ol>
-        <br>
+        <map name="workmap">
+            <area shape="rect" coords="26,566,351,266" alt="Colosseo" href="https://ww.colosseo.it" target="_blank">
+        </map>
     </body>
 </html>
