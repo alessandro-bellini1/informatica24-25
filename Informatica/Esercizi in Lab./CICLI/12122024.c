@@ -19,5 +19,4 @@ int main(){
         else printf("il valore è uguale a 0");
     }
     printf("la somma dei numeri postivi è %d\nla somma dei numeri negativi è %d",sommaP, sommaN);
-
 }
