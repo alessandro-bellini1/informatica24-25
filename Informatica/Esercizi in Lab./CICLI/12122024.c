@@ -3,7 +3,7 @@ e mostrare la somma dei numeri negativi e dei numeri positivi*/
 #include <stdio.h>
 int main(){
 
-    int N=0,nu=sommaP=0 sommaN;
+    int N=0, num=0 ,sommaP=0, sommaN=0;
     do{
         printf("Numeri da inserire (più di 5)\nScelta: ");
         scanf("%d",&N);
