@@ -5,9 +5,10 @@ int main(){
 
     int N=0, num=0 ,sommaP=0, sommaN=0;
     do{
-        printf("Numeri da inserire (più di 5)\nScelta: ");
+        printf("inserisci il numero di valori che vengono inserire (più di 5)\nScelta: ");
         scanf("%d",&N);
     }while(N<=5);
+    
     for(int i=0; i<N; i++){
         printf("inserisci un valore\nScelta: ");
         scanf("%d",&num);
