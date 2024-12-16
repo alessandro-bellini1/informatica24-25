@@ -9,7 +9,7 @@ int main(){
     }while(N<0);
     for(int i=1; i<=N; i++){
         somma+=i;
-        printf("%d+\n",i);
+        printf("%d+",i);
     }
-    printf("la somma dei numeri N è: %d\n",somma);
+    printf("\nla somma dei numeri N è: %d\n",somma);
 }
