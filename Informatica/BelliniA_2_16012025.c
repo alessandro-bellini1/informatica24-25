@@ -8,7 +8,7 @@ int main(){
     for(int i=1; i<=num; i++){
         for(int j=1; j<=i; j++){
             if(i/j==1){
-                NP=j;
+                NP=i;
                 printf("%d",NP);
                 NP=0;
             }
