@@ -17,7 +17,8 @@ int main(){
             scanf("%d",&num);
             if(num>n2){
             cnt++;
-            printf("%d ",num);
+            printf("%d\n",num);
+            n2=num;
             }
         }while(num!=0);
     }
@@ -27,10 +28,11 @@ int main(){
             scanf("%d",&num);
             if(num<n2){
             cnt++;
-            printf("%d ",num);
+            printf("%d\n",num);
+            n2=num;
             }
         }while(num!=0);
         
     }
-    printf("numeri inseriti sono %d",cnt);
+    printf("numeri inseriti validi sono %d",cnt);
 }
