@@ -1,18 +1,21 @@
 /*DATI  DUE  NUMERI  A  PIU' CIFRE(STESSO NUMERO DI CIFRE) SCAMBIARE TRA DI LORO LE CIFRE DI POSIZIONE PARI*/
 #include <stdio.h>
 int main(){
-    int n1, n2, cnt=0, cnt2=1, c1=0, c2=0, temp=0, n3=0, n4=0;
+    int n1, n2, cnt=0, cnt2=1, c1=0, c2=0, temp=0, n3=0, n4=0, k=1, y=0;
     do{
         printf("inserisci un valore maggiore di 9\nscelta: ");
         scanf("%d", &n1);
-    }while(n1<=9||n1>=10000);
+    }while(n1<=9);
+    for(int j=1; j<n1; j*=10){
+        k*=10;
+        y++;
+    }
     do{
         printf("inserisci un'altro valore maggiore di 9\nscelta: ");
         scanf("%d", &n2);
-    }while(n2<=9||n2>=10000);
+    }while(n2<=9||n2>=k);
 
-
-    for(int i=1; i<=4; i++){
+    for(int i=1; i<=y; i++){
         c1=n1%10;
         c2=n2%10;
         cnt++;
