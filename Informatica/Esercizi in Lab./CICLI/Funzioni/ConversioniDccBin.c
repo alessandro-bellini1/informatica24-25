@@ -26,5 +26,6 @@ long converti(int _n){
         _conv=pow(10,cnt);
         cnt++;
     }
+    return _conv;
 }
 
