@@ -14,7 +14,7 @@ int main(){
     }while(n<=0);
     
     conv=converti(n);
-
+    printf("%ld\n", conv);
 }
 
 long converti(int _n){
