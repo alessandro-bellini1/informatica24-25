@@ -21,7 +21,7 @@ int main(){
     printf("la circonferenza del cerchio vale: %.2f \nmentre l'area vale: %.2f",C, A);
 }
 void area(int _R, float *_A){
-    *_A=pow(_R,2)*PG;
+    *_A=(_R*_R)*PG;
 }
 void circonferenza(int _R, float *_C){
     *_C=_R*2*PG;
