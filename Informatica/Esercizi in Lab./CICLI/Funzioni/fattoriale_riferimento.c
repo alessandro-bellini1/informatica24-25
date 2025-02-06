@@ -17,7 +17,6 @@ int main(){
 }
 
 void fattoriale(int _n, long *_fatt){
-    int i;
-    for(i=1; i<=_n; i++)
+    for(int i=1; i<=_n; i++)
         *_fatt*=i;
 }
