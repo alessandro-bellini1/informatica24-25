@@ -12,7 +12,7 @@ int main(){
     }while(n<=0);
 
     fattoriale(n, &fatt);
-    printf("%d",fatt);
+    printf("il fattoriale di %d è %ld",n ,fatt);
     return 0;
 }
 
