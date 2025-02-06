@@ -2,6 +2,7 @@
 */
 
 #include <stdio.h>
+#include <math.h>
 
 long converti(int _n);
 
