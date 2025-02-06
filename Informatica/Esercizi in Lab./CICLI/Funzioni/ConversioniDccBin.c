@@ -23,7 +23,7 @@ long converti(int _n){
     while(_n!=0){
         resto=quoz%2; 
         quoz/=2;
-        _conv=(10,cnt);
+        _conv=pow(10,cnt);
         cnt++;
     }
     return _conv;
