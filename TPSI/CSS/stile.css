@@ -1,9 +1,10 @@
 body{
     background:rgb(180, 245, 15);
     margin: 0px;
+    font-family: 'Comic Sans', sans-serif;
 }
 #container{
     width: 960px;
     margin: 0px auto;
-    border: 2px red solid;
+    background: #000;
 }
