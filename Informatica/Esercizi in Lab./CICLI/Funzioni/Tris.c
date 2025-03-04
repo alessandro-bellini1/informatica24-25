@@ -12,7 +12,6 @@ int main(){
     int turno=0;
     while(SceltaSimbolo(x, o, &P1, &P2)==1);
    
-
     while(turno<9){
         if(turno%2==0)
             simbolo_turno=P1;
@@ -31,10 +30,6 @@ int main(){
 if(turno==9)
 printf("PAREGGIO!!!\n");
 griglia(&c1, &c2, &c3, &c4, &c5, &c6, &c7, &c8, &c9);
-
-
-
-
 }
 
 int SceltaSimbolo(char _x, char _o, char *_P1, char *_P2){
@@ -72,61 +67,61 @@ int gioco(char _simbolo_turno, char *_c1, char *_c2, char *_c3, char *_c4, char 
 
     switch(p){
         case 1:
-        if(*_c1==' '){
-        *_c1=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c1==' '){
+            *_c1=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 2:
-        if(*_c2==' '){
-        *_c2=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c2==' '){
+            *_c2=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 3:
-        if(*_c3==' '){
-        *_c3=_simbolo_turno;
-        return 0;
+            if(*_c3==' '){
+            *_c3=_simbolo_turno;
+            return 0;
         }else return 1;
         break;
-        case 4:
-        if(*_c4==' '){
-        *_c4=_simbolo_turno;
-        return 0;
-        }else return 1;
+            case 4:
+            if(*_c4==' '){
+            *_c4=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 5:
-        if(*_c5==' '){
-        *_c5=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c5==' '){
+            *_c5=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 6:
-        if(*_c6==' '){
-        *_c6=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c6==' '){
+            *_c6=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 7:
-        if(*_c7==' '){
-        *_c7=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c7==' '){
+            *_c7=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 8:
-        if(*_c8==' '){
-        *_c8=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c8==' '){
+            *_c8=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         case 9:
-        if(*_c9==' '){
-        *_c9=_simbolo_turno;
-        return 0;
-        }else return 1;
+            if(*_c9==' '){
+            *_c9=_simbolo_turno;
+            return 0;
+            }else return 1;
         break;
         default:
-        printf("posizione inesistente\n");
+            printf("posizione inesistente\n");
         return 1;
         }
         return 1;
