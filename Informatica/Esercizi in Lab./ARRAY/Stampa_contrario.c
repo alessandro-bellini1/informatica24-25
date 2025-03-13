@@ -3,7 +3,7 @@
 #define MAX 10
 int main(){
     int v[MAX], j=1;
-    for( int i=0; i<MAX; i++){
+    for(int i=0; i<MAX; i++){
         v[i]=2*j;
         j++;
     }
