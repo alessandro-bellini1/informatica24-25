@@ -19,7 +19,7 @@ void riempiVettore(int vettore[], int dim);
  * @param int minimo valore minimo dei numeri casuali
  * @param int massimo valore dei numeri casuali
  */
-void riempiVettoreCasuale(int vettore[], int dim, int minimo, int massimo);
+void riempiVettoreCasuale(int vettore[], int vettore2[], int dim, int minimo, int massimo);
 /**
  * questa funzione restituisce il numero di volte in cui compare la variabile valore all'interno del vettore
  * @param int[]vettore in ingresso
