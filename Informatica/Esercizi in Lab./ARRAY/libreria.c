@@ -39,6 +39,13 @@ void stampaVettori(int vet[], int vet2[], int dim, char sep){
     }
 }
 
+void caricaCasuale(int vet[], int dim, int min, int max){
+    srand(time(NULL));
+    for(int i=0; i<dim; i++){
+        vet[i]=rand()%(max-min)+min;
+    }
+}
+
 void riempiVettoreCasuale(int vet[], int vet2[], int dim, int minimo, int massimo){
     srand(time(NULL));
     for(int i=0; i<dim; i++){
