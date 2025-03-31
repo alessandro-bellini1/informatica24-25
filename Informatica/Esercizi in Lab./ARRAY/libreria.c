@@ -6,6 +6,14 @@
 #include <stdlib.h>
 #include "libreria.h" //prototipi delle funzioni
 
+void caricaVettori(int vet[], int dim){
+    int n=0;
+    for(int i=0; i<dim; i++){
+        printf("inserisci un valore\nscelta: ");
+        scanf("%d", &n);
+    }
+}
+
 void richiediValori(int vet[], int dim){
     int n=0, i=0;
 
