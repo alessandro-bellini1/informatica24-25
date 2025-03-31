@@ -9,5 +9,4 @@ int main(){
     riempiVettoreCasuale(vettore, vettore2, DIM,  0, 10);
     scambiaVettori(vettore, vettore2, DIM);
     stampaVettori(vettore, vettore2, DIM, '\t');
-
 }
