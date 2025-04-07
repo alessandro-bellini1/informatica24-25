@@ -129,3 +129,64 @@ void riempiVettoreOrdinatoCasuale(int vett[], int dim, int minimo, int massimo) 
         vett[pos] = num;
     }
 }
+
+void bubbleSort(int vett[], int dim){
+    int temp;
+    int flag=0;
+    int i=0;
+    while(flag==0){
+        flag=1;
+        for(int j=0; j<dim-1-i; j++){
+            if(vett[j]>vett[j+1]){
+                flag=0;
+                temp=vett[j];
+                vett[j]=vett[j+1];
+                vett[j+1]=temp;
+            }
+        }
+        i++;
+    }
+}
+
+void selectionSort(int vett[], int dim){
+    int min=0;
+    int temp=0;
+    for(int i=0; i<dim; i++){
+        min=i;
+       for(int j=i+1; j<dim ;j++){
+            if(vett[j]<vett[min]){
+                min=j;
+            }
+       }
+       temp=vett[min];
+       vett[min]=vett[i];
+       vett[i]=temp;
+
+    }
+}
+
+void quickSort(int v[], int dim, int inizio, int fine) {
+        int i, j, pivot;
+       
+        if(inizio < fine){
+            pivot = inizio;
+            i = inizio;
+            j = fine;
+            
+            while(i < j){
+                while(v[i] <= v[pivot] && i < fine)
+                    i++;
+                while(v[j] > v[pivot])
+                    j--;
+                if(i < j){
+                    scambia(&v[i], &v[j]);
+                }
+            }
+            
+            scambia(&v[pivot], &v[j]);
+            //stampaVettore(v, dim, '\t');
+            quickSort(v, dim, inizio, j - 1);
+            quickSort(v, dim, j + 1, fine);
+        }
+    
+}
