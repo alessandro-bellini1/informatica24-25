@@ -29,6 +29,8 @@ void richiediValori(int vet[], int dim){
 }
 
 void sommaVettori(int vet[], int dim, int *cnt){
+    int i=0;
+    int somma=0;
     while(vet[i]!=0 && i<dim){
         somma+=vet[i];
         i++;
