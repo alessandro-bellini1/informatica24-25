@@ -177,27 +177,26 @@ void selectionSort(int vett[], int dim){
 }
 
 void quickSort(int v[], int dim, int inizio, int fine) {
-        int i, j, pivot;
+    int i, j, pivot;
        
-        if(inizio < fine){
-            pivot = inizio;
-            i = inizio;
-            j = fine;
+    if(inizio < fine){
+        pivot = inizio;
+        i = inizio;
+        j = fine;
             
-            while(i < j){
-                while(v[i] <= v[pivot] && i < fine)
-                    i++;
-                while(v[j] > v[pivot])
-                    j--;
-                if(i < j){
-                    scambia(&v[i], &v[j]);
-                }
+        while(i < j){
+            while(v[i] <= v[pivot] && i < fine)
+                i++;
+            while(v[j] > v[pivot])
+                j--;
+            if(i < j){
+                scambia(&v[i], &v[j]);
             }
-            
-            scambia(&v[pivot], &v[j]);
-            //stampaVettore(v, dim, '\t');
-            quickSort(v, dim, inizio, j - 1);
-            quickSort(v, dim, j + 1, fine);
         }
-    
+            
+        scambia(&v[pivot], &v[j]);
+        //stampaVettore(v, dim, '\t');
+        quickSort(v, dim, inizio, j - 1);
+        quickSort(v, dim, j + 1, fine);
+    }
 }
