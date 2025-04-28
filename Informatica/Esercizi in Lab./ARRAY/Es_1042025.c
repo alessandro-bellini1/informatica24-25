@@ -8,12 +8,15 @@ il loro numero;*/
 int main(){
     int vet[DIM]={0};
     int sommaVett=0;
-
-    caricaVettori(vet[], DIM);
+    int cnt=0;
+    caricaVettori(vet, DIM);
     stampaVettori(vet, DIM);
-    sommaVettori(vet, DIM, &cnt)
+    sommaVettori(vet, DIM, &cnt);
 }
+
 void sommaVettori(int vet[], int dim, int *cnt){
+    int i=0;
+    int somma=0;
     while(vet[i]!=0 && i<dim){
         somma+=vet[i];
         i++;

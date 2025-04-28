@@ -28,7 +28,7 @@ void richiediValori(int vet[], int dim){
 
 }
 
-void sommaVettori(int vet[], int dim, int *cnt){
+int sommaVettori(int vet[], int dim, int *cnt){
     int i=0;
     int somma=0;
     while(vet[i]!=0 && i<dim){
@@ -46,6 +46,13 @@ void scambiaVettori(int vet[], int vet2[], int dim){
         vet[i]=vet2[i];
         vet2[i]=temp;
     }
+}
+
+void stampaVettore(int vettore[], int dim, char sep){
+    for(int i=0; i<dim; i++){
+        printf("%d%c", vettore[i], sep);
+    }
+    printf("\n");
 }
 
 void stampaVettori(int vet[], int vet2[], int dim, char sep){
@@ -199,4 +206,9 @@ void quickSort(int v[], int dim, int inizio, int fine) {
         quickSort(v, dim, inizio, j - 1);
         quickSort(v, dim, j + 1, fine);
     }
+}
+void scambia(int *var1, int *var2){
+    int temp = *var1;
+    *var1 = *var2;
+    *var2 = temp;
 }

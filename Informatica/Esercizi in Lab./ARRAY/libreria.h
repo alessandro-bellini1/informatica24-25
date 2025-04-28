@@ -33,7 +33,7 @@ void riempiVettore(int vettore[], int dim);
 */
 void riempiVettoreCasuale(int vettore[], int vettore2[], int dim, int minimo, int massimo);
 
-void sommaVettori(int vet[], int dim, int *cnt);
+int sommaVettori(int vet[], int dim, int *cnt);
 
 /**
  * questa funzione restituisce il numero di volte in cui compare la variabile valore all'interno del vettore
@@ -103,3 +103,10 @@ void selectionSort(int vett[], int dim);
  * @param int indice dell'elemento finale del vettore da ordinare
 */
 void quickSort(int v[], int dim, int inizio, int fine);
+
+/**
+ * Scambia due variabili intere
+ * @param int* variabile 1 passata per riferimento
+ * @param int* variabile 2 passata per riferimento
+ */
+void scambia(int *var1, int *var2);
