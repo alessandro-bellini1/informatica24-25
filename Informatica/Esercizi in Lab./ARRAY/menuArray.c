@@ -6,10 +6,12 @@
 
 #include <stdio.h>
 #include "libreria.c"
-#define dim 5
+#include "libreria.h"
+
+#define DIM 5
 
 int main(){
-    int vet[dim];
+    int vet[DIM];
     int scelta;
     do{
         printf("1) carica un array con solo valori pari\n");
@@ -18,15 +20,16 @@ int main(){
         printf("4) esci\n");
         printf("scelta: ");
         scanf("%d", &scelta);
+        
         switch(scelta){
             case 1:
-                caricaVettori(vet, dim);
+                caricaVettori(vet, DIM);
                 break;
             case 2:
-                stampaVettori(vet, dim, '\t');
+                stampaVettore(vet, DIM, '\t');
                 break;
             case 3:
-                bubbleSort(vet, dim);
+                bubbleSort(vet, DIM);
                 break;
             case 4:
                 printf("uscita dal programma...\n");
