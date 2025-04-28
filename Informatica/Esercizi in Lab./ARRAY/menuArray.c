@@ -29,7 +29,7 @@ int main(){
                 stampaVettore(vet, DIM, '\t');
                 break;
             case 3:
-                bubbleSort(vet, DIM);
+                caricaBubble(vet, DIM);
                 break;
             case 4:
                 printf("uscita dal programma...\n");

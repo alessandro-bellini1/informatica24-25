@@ -212,3 +212,17 @@ void scambia(int *var1, int *var2){
     *var1 = *var2;
     *var2 = temp;
 }
+
+void caricaBubble(int vett[], int dim){
+    int temp=0;
+
+    for(int i=0; i<dim-1; i++){
+        for(int j=0; j<dim-1; j++){
+            if(vett[j]>vett[j+1]){
+                temp=vett[j];
+                vett[j]=vett[j+1];
+                vett[j+1]=temp;
+            }
+        }
+    }
+}
