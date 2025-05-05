@@ -110,3 +110,5 @@ void quickSort(int v[], int dim, int inizio, int fine);
  * @param int* variabile 2 passata per riferimento
  */
 void scambia(int *var1, int *var2);
+
+void ScambioMinMax(int vet[], int dim);

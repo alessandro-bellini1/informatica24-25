@@ -17,7 +17,7 @@ int main(){
         printf("1) carica un array con solo valori pari\n");
         printf("2) stampa l'array\n");
         printf("3) ordina l'array tramite la tecnica del bubble sort\n");
-        printf("4) esci\n");
+        printf("4) Trovato il valore minimo e il valore massimo all'interno dell'array scambiare di posizione\n");
         printf("scelta: ");
         scanf("%d", &scelta);
         
@@ -32,7 +32,8 @@ int main(){
                 caricaBubble(vet, DIM);
                 break;
             case 4:
-                printf("uscita dal programma...\n");
+                scambioMinMax(vet, DIM);
+                stampaVettore(vet, DIM, '\t');
                 break;
             default:
                 printf("scelta non valida\n");

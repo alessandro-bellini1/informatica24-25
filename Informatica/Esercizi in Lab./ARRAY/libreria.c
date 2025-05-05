@@ -226,3 +226,23 @@ void caricaBubble(int vett[], int dim){
         }
     }
 }
+
+void ScambioMinMax(int vet[], int dim){
+    int min, max, i_min, i_max;
+    min=vet[0];
+    max=vet[0];
+    //calcolo il valore e la posizione del minimo e del massimo
+    for(int i=1; i<dim; i++){
+        if(vet[i]<min){
+            min=vet[i];
+            i_min=i;
+        }
+        if(vet[i]>max){
+            max=vet[i];
+            i_max=i;
+        }
+    }
+    //scambio i valori
+    vet[i_min]=max;
+    vet[i_max]=min;
+}
