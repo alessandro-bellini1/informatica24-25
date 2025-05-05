@@ -111,4 +111,4 @@ void quickSort(int v[], int dim, int inizio, int fine);
  */
 void scambia(int *var1, int *var2);
 
-void ScambioMinMax(int vet[], int dim);
+void scambioMinMax(int vet[], int dim);

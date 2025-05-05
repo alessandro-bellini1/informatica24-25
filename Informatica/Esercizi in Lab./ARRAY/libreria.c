@@ -227,7 +227,7 @@ void caricaBubble(int vett[], int dim){
     }
 }
 
-void ScambioMinMax(int vet[], int dim){
+void scambioMinMax(int vet[], int dim){
     int min, max, i_min, i_max;
     min=vet[0];
     max=vet[0];
