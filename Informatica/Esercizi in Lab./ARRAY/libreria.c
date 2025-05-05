@@ -7,10 +7,9 @@
 #include "libreria.h" //prototipi delle funzioni
 
 void caricaVettori(int vet[], int dim){
-    int n=0;
     for(int i=0; i<dim; i++){
         printf("inserisci un valore\nscelta: ");
-        scanf("%d", &n);
+        scanf("%d", &vet[i]);
     }
 }
 
