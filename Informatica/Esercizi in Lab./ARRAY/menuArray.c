@@ -40,5 +40,4 @@ int main(){
         }
     }while(scelta!=4);
     return 0;
-
 }
