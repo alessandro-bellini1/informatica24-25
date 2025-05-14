@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Pagina con Menù</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+        }
+            nav {
+                width: 60%;
+                background-color: #030303;
+                padding: 60px;
+            }
+            nav ul {
+                list-style-type: disc;
+                padding-left: 30px;
+                color: white
+            }
+            nav ul li {
+                margin: 0px 0;
+            }
+            .content{
+                flex-grow: 1;
+                padding: 20%;
+                text-align: left;
+            }
+            footer {
+                text-align: center;
+                padding: 10px;
+                background-color: #ddd;
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+            }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <p><h2>MENU'</h2></p>
+        <ul>
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Benvenuto!</h1>
+        <p>paragrafo 1</p>
+        <p>paragrafo 2</p>
+    </div>
+
+    <footer>
+        <p>piè di pagina</p>
+    </footer>
+
+</body>
+</html>
