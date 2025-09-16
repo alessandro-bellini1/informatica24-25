@@ -1,39 +1,36 @@
 /*Data una matrice di valori scambiare gli elementi della diagonale principale con la diagonale secondaria.*/
 #include <stdio.h>
-#define N 3  // Dimensione della matrice quadrata
+#include <time.h>
+#define N 4  // Dimensione della matrice quadrata
 
-void stampa_matrice(int mat[3][3])
-{
+void caricaMat(int (*_mat)[N]){
+    printf("Matrice iniziale: \n");
+    for(int i=0; i<N; i++)
+        for(int j=0; j<N; j++)
+            _mat[i][j] = rand()%30 + 1;
+    return 0;
+}
+
+void stampa_matrice(int (*_mat[N])){
     for(int i=0; i< N; i++)
-    {
-        for(int j=0; j< N; j++)
-        {
-            printf("%d  ", mat[i][j]);
+        for(int j=0; j< N; j++){
+            printf("%d  ", _mat[i][j]);
+            printf("\n");
         }
-        printf("\n");
+    
+    
+}
+
+void scambioDiag(int (*_mat)[N]){
+    for(int i=0; i<N; i++){
+        int temp = _mat[i][i];
+        _mat[i][i] = _mat[i][N-1-i];
+        _mat[i][N-1-i] = temp;
     }
 }
 
-int main()
-{
-    int matrice[N][N] =
-    {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-
-    printf("Matrice originale:\n");
-    stampa_matrice(matrice);
-
-    // scmbio delle diagonali
-    for (int i = 0; i < N ; i++)
-    {
-        int temp = matrice[i][i];
-        matrice[i][i] = matrice[i][N - 1 - i];
-        matrice[i][N - 1 - i] = temp;
-    }
-
+int main(){
+    stampa_matrice();
     printf("\nMatrice dopo lo scambio delle diagonali:\n");
     stampa_matrice(matrice);
 
