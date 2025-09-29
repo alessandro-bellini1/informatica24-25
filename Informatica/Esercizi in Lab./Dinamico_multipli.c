@@ -44,25 +44,17 @@ int main() {
     }
     printf("Somma degli elementi multipli di 3: %d\n", sum);
 
-    // 5. Creazione di un nuovo array contenente solo valori dispari
+    // 5. Creazione di un nuovo array contenente solo valori dispari usando realloc
+    dispArray = NULL;
     for (i = 0; i < n; i++) {
         if (array[i] % 2 != 0) {
-            dispConto++;
-        }
-    }
-
-    dispArray = (int *)malloc(dispConto * sizeof(int));
-
-    if (dispArray == NULL) {
-        printf("Errore di allocazione della memoria per l'array dispari.\n");
-        free(array);
-        return 1;
-    }
-
-    int dispari = 0;
-    for (i = 0; i < n; i++) {
-        if (array[i] % 2 != 0) {
-            dispArray[dispari++] = array[i];
+            dispArray = (int *)realloc(dispArray, (dispConto + 1) * sizeof(int));
+            if (dispArray == NULL) {
+                printf("Errore di allocazione della memoria per l'array dispari.\n");
+                free(array);
+                return 1;
+            }
+            dispArray[dispConto++] = array[i];
         }
     }
 
