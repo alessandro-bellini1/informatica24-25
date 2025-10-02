@@ -9,7 +9,7 @@ SCRIVERE UN PROGRAMMA IN C CHE:
 #include <stdio.h>
 #include <stdlib.h>
 
-int* allocArray(int n) {
+int* allocArray(int n){
     int *arr = (int *)malloc(n * sizeof(int));
     if (arr == NULL) {
         printf("Errore di allocazione della memoria.\n");
@@ -18,31 +18,31 @@ int* allocArray(int n) {
     return arr;
 }
 
-void insertValues(int *arr, int n) {
-    for (int i = 0; i < n; i++) {
+void insertValues(int *arr, int n){
+    for (int i = 0; i < n; i++){
         printf("Inserisci il valore %d: ", i + 1);
         scanf("%d", &arr[i]);
     }
 }
 
-void printArray(int *arr, int n) {
-    for (int i = 0; i < n; i++) {
+void printArray(int *arr, int n){
+    for (int i = 0; i < n; i++){
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
 
-int sumMultipli3(int *arr, int n) {
+int sumMultipli3(int *arr, int n){
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] % 3 == 0) {
+    for (int i = 0; i < n; i++){
+        if (arr[i] % 3 == 0){
             sum += arr[i];
         }
     }
     return sum;
 }
 
-int* creaArrayDispari(int *arr, int n, int *dispCount) {
+int* creaArrayDispari(int *arr, int n, int *dispCount){
     int *dispArr = NULL;
     *dispCount = 0;
     for (int i = 0; i < n; i++) {
@@ -58,7 +58,7 @@ int* creaArrayDispari(int *arr, int n, int *dispCount) {
     return dispArr;
 }
 
-int main() {
+int main(){
     int n, dispCount, *array, *dispArray;
 
     printf("Inserisci il numero di elementi: ");
