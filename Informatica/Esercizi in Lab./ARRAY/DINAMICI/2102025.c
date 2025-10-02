@@ -11,39 +11,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void inserisci_numeri(int *array, int inizio, int fine) {
+    for (int i = inizio; i < fine; i++) {
+        printf("Numero %d: ", i + 1);
+        scanf("%d", &array[i]);
+    }
+}
+
+void stampa_array(int *array, int n) {
+    printf("I numeri nell'array sono:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
 int main() {
-    int n, new_n, i;
+    int n, nuova_n, i;
     int *array;
 
-    // Step 1: Ask user for the number of integers
+    // Passo 1: Chiedi all'utente quanti numeri inserire
     printf("Quanti numeri interi vuoi inserire? ");
     scanf("%d", &n);
 
-    // Step 2: Allocate memory for the array
+    // Passo 2: Alloca memoria per l'array
     array = (int *)malloc(n * sizeof(int));
     if (array == NULL) {
         printf("Errore di allocazione della memoria.\n");
         return 1;
     }
 
-    // Step 3: Allow user to input numbers
+    // Passo 3: Inserisci i numeri
     printf("Inserisci %d numeri interi:\n", n);
-    for (i = 0; i < n; i++) {
-        printf("Numero %d: ", i + 1);
-        scanf("%d", &array[i]);
-    }
+    inserisci_numeri(array, 0, n);
 
-    // Step 4: Ask if user wants to increase the size of the array
-    char choice;
+    // Passo 4: Chiedi se aumentare la dimensione dell'array
+    char scelta;
     printf("Vuoi aumentare la dimensione dell'array? (s/n): ");
-    scanf(" %c", &choice);
+    scanf(" %c", &scelta);
 
-    if (choice == 's' || choice == 'S') {
+    if (scelta == 's' || scelta == 'S') {
         printf("Inserisci la nuova dimensione dell'array: ");
-        scanf("%d", &new_n);
+        scanf("%d", &nuova_n);
 
-        // Reallocate memory for the new size
-        int *temp = (int *)realloc(array, new_n * sizeof(int));
+        int *temp = (int *)realloc(array, nuova_n * sizeof(int));
         if (temp == NULL) {
             printf("Errore di riallocazione della memoria.\n");
             free(array);
@@ -51,23 +62,14 @@ int main() {
         }
         array = temp;
 
-        // Allow user to input new values in the added spaces
         printf("Inserisci i nuovi numeri interi:\n");
-        for (i = n; i < new_n; i++) {
-            printf("Numero %d: ", i + 1);
-            scanf("%d", &array[i]);
-        }
-        n = new_n; // Update n to the new size
+        inserisci_numeri(array, n, nuova_n);
+        n = nuova_n;
     }
 
-    // Step 5: Print all numbers in the array
-    printf("I numeri nell'array sono:\n");
-    for (i = 0; i < n; i++) {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
+    // Passo 5: Stampa tutti i numeri
+    stampa_array(array, n);
 
-    // Free allocated memory
     free(array);
     return 0;
 }
