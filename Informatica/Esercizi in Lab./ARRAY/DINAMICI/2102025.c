@@ -27,7 +27,7 @@ void stampa_array(int *array, int n) {
 }
 
 int main() {
-    int n, nuova_n, i;
+    int n, nuova_n;
     int *array;
 
     // Passo 1: Chiedi all'utente quanti numeri inserire
