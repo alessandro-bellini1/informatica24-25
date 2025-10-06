@@ -17,6 +17,7 @@ int* creaArr(int n){
         printf("Errore di allocazione della memoria.\n");
         return NULL;
     }
+    return _array;
 }
 
 int* inserisci_numeri(int *_array, int inizio, int fine){
@@ -24,10 +25,11 @@ int* inserisci_numeri(int *_array, int inizio, int fine){
         printf("Numero %d: ", i + 1);
         scanf("%d", &_array[i]);
     }
+    return _array;
 }
 
 
-int* aumenta_array(int *_array, int n){
+int* aumenta_array(int *_array, int *n){
     int nuova_n;
     char scelta;
     printf("Vuoi aumentare la dimensione dell'array? (s/n): ");
@@ -37,7 +39,7 @@ int* aumenta_array(int *_array, int n){
         printf("Inserisci la nuova dimensione dell'array: ");
         scanf("%d", &nuova_n);
 
-        int *temp = (int *)realloc(_array, nuova_n * sizeof(int));
+        int *temp = (int *)realloc(_array, (nuova_n) * sizeof(int));
         if (temp == NULL) {
             printf("Errore di riallocazione della memoria.\n");
             free(_array);
@@ -46,9 +48,10 @@ int* aumenta_array(int *_array, int n){
         _array = temp;
 
         printf("Inserisci i nuovi numeri interi:\n");
-        inserisci_numeri(_array, n, nuova_n);
-        n = nuova_n;
+        inserisci_numeri(_array, *n, nuova_n);
+        *n = nuova_n;
     }
+    return _array;
 }
 
 void stampa_array(int *array, int n){
@@ -67,16 +70,16 @@ int main(){
     printf("Quanti numeri interi vuoi inserire? ");
     scanf("%d", &n);
 
-    // Passo 2: Alloca memoria per l'array
     array = creaArr(n);
 
     // Passo 3: Inserisci i numeri
     array = inserisci_numeri(array, 0, n);
 
     // Passo 4: Chiedi se aumentare la dimensione dell'array tramite funzione
-    array = aumenta_array(array, n);
+    array = aumenta_array(array, &n);
 
     // Passo 5: Stampa tutti i numeri
+    stampa_array(array, n);
     stampa_array(array, n);
 
     free(array);
