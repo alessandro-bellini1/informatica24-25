@@ -152,29 +152,3 @@ Bool equivalenti(Stringa s1, Stringa s2){
         }return true;
     }else return false;
 }
-int main(){
-    if(equivalenti("ciao", "ciao")){
-        printf("Le stringhe sono uguali");
-    } else {
-        printf("Le stringhe NON sono uguali");
-    }
-}
-void maiuscole_minuscole(Stringa s1, Bool maiusc_to_minusc){
-    int i=0;
-    if(maiusc_to_minusc){
-        while(s1[i] != '\0'){
-            if(s1[i]>=65 && s1[i] <= 90){
-                s1[i]+=32;
-            }
-            i++;
-        }
-    }else {
-        while(s1[i] != '\0'){
-            if(s1[i]>=97 && s1[i] <= 122){
-                s1[i]-=32;
-            }
-        }
-        i++;
-    }
-
-}
