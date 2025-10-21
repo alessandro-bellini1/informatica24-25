@@ -17,7 +17,7 @@ void compatta(Stringa buffer, int len){
 int conta_vocali(Stringa frase){
     int cnt = 0;
     for(int i = 0; frase[i] != '\0'; i++){
-        char c = tolower(frase[i]);
+        char c = tolower(frase[i]); //transformo in minuscolo per semplificare il controllo
         if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
             cnt++;
         }
