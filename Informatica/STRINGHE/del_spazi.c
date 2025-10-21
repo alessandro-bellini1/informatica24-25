@@ -8,9 +8,8 @@ typedef char* Stringa;
 Stringa elimina_spazi(Stringa s1, int *dim1){
     int cnt = 0;
     for(int i = 0; i < *dim1; i++){
-        if(s1[i] != ' '){
+        if(s1[i] != ' ')
             s1[cnt++] = s1[i];
-        }
     }
     s1[cnt] = '\0';
     *dim1 = cnt;
