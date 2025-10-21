@@ -5,15 +5,16 @@
 
 typedef char* Stringa;
 
-Stringa elimina_spazi(Stringa s1, int dim1){
+Stringa elimina_spazi(Stringa s1, int *dim1){
     int cnt = 0;
-    for(int i = 0; i < dim1; i++){
+    for(int i = 0; i < *dim1; i++){
         if(s1[i] != ' '){
             s1[cnt] = s1[i];
             cnt++;
         }
     }
     s1[cnt] = '\0';
+    *dim1 = cnt;
     return s1;
 }
 
@@ -35,7 +36,9 @@ int main(){
     compatta(s1, len);
 
     printf("Stringa originale: %s\n", s1);
-    s1 = elimina_spazi(s1, len);
+    s1 = elimina_spazi(s1, &len);
+    compatta(s1, strlen(s1));
     printf("Stringa senza spazi: %s\n", s1);
+    printf("la dimensione vale: %d\n", len);
     return 0;
 }
