@@ -12,7 +12,7 @@ Stringa elimina_spazi(Stringa s1, int *dim1){
             s1[cnt++] = s1[i];
     }
     s1[cnt] = '\0';
-    *dim1 = cnt;
+    *dim1 = cnt-1; // Aggiorna la dimensione della stringa
     return s1;
 }
 
