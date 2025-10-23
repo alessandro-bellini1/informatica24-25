@@ -24,7 +24,7 @@ Stringa crea_stringa_dinamica(char terminator){
     int capacity = 0;   // spazio totale allocato
     char c;
 
-    printf("Inserisci una stringa (termina con %c):\n", terminator);
+    printf("Inserisci una stringa ");
 
     while ((c = getchar()) != terminator && c != EOF) {  // finchè l'utente non inserisce il carattere terminatore o non si raggiunge la fine di un file
         if (size + 1 >= capacity) {
