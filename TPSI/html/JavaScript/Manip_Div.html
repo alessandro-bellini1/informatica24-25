@@ -1,0 +1,87 @@
+<!-- 
+    1) Creiamo una text area dove inseriamo un messaggio
+    2) Creiamo una text area dove inseriamo il colore da attribuire al testo
+    3) Creiamo una div (w: 400px, h: 300px bordo 1px solid black)
+    4) Creiamo un pulsante che copi il messaggio scritto all'interno della div
+    5) Creiamo un pulsante che schiacciandolo colora il testo nella div del colore inserito
+    6) Creiamo un pulsante che schiacciandolo aumenta la width della div
+    7) Creiamo un pulsante che schiacciandolo diminuisce la width della div
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipolazione Div con JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        input[type="color"] {
+            padding: 0;
+            margin-top: 10px;
+        }
+        #box {
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        input[type="button"] {
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+        #output {
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        function copyMessage() {
+            var message = document.getElementById('message').value;
+            document.getElementById('box').innerText = message;
+        }
+        function changeColor() {
+            var color = document.getElementById('color').value;
+            document.getElementById('box').style.color = color;
+        }
+        function increaseWidth() {
+            var div = document.getElementById('box');
+            if (!div) return;
+            var current = Math.round(div.getBoundingClientRect().width);
+            div.style.width = (current + 20) + 'px';
+        }
+        function decreaseWidth() {
+            var div = document.getElementById('box');
+            if (!div) return;
+            var current = Math.round(div.getBoundingClientRect().width);
+            var newWidth = Math.max(200, current - 20);
+            div.style.width = newWidth + 'px';
+        }
+    </script>
+</head>
+<body>
+    <h1>Manipolazione Div con JavaScript</h1>
+    <label for="message">Inserisci il messaggio:</label><br>
+    <input type="text" id="message" placeholder="Scrivi il tuo messaggio qui"><br><br> 
+    <label for="color">Scegli il colore del testo:</label><br>
+    <input type="color" id="color" value="#000000"><br><br>
+    <div id="box" >
+        <!-- Il messaggio apparirà qui -->
+    </div><br>
+    <input type="button" value="Copia Messaggio" onclick="copyMessage()">
+    <input type="button" value="Cambia Colore" onclick="changeColor()">
+    <input type="button" value="Aumenta Larghezza" onclick="increaseWidth()">
+    <input type="button" value="Diminuisci Larghezza" onclick="decreaseWidth()">
+</body>    
+</html>
