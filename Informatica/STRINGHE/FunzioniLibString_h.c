@@ -53,16 +53,18 @@ int main(){
                 break;
             }
             case 4: {
-                char str[LEN];
+                char *ptr;
                 char c;
-                int cnt = 0;
+                int cnt=0;
+                char str5[LEN];
                 printf("Inserisci una stringa: ");
-                scanf("%s", str);
+                scanf("%s", str5);
                 printf("Inserisci il carattere da cercare: ");
                 scanf(" %c", &c);
-                for (int i = 0; i < strlen(str); i++) {
-                    if (str[i] == c)
-                        cnt++;
+                ptr = str5;
+                while((ptr = strchr(ptr, c)) != NULL){
+                    cnt++;
+                    ptr++; // Avanza il puntatore per cercare ulteriori occorrenze
                 }
                 printf("Il carattere '%c' appare %d volte nella stringa.\n", c, cnt);
                 break;
