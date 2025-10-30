@@ -40,34 +40,47 @@
             padding: 5px 10px;
             margin-top: 10px;
         }
-        #output {
-            width: 300px;
-            height: 200px;
-            border: 2px solid black;
-        }
     </style>
     <script>
+        var div = document.getElementById('box');
+        var message;
+        var color;
+        var dimCarattere = 16;
+        var LarghezzaBox = 400;
         function copyMessage() {
-            var message = document.getElementById('message').value;
+            message = document.getElementById('message').value;
             document.getElementById('box').innerText = message;
         }
         function changeColor() {
-            var color = document.getElementById('color').value;
+            color = document.getElementById('color').value;
             document.getElementById('box').style.color = color;
         }
         function increaseWidth() {
-            var div = document.getElementById('box');
             if (!div) return;
-            var current = Math.round(div.getBoundingClientRect().width);
-            div.style.width = (current + 20) + 'px';
+            LarghezzaBox += 20;
+            div.style.width = LarghezzaBox + 'px';
+            
         }
         function decreaseWidth() {
-            var div = document.getElementById('box');
             if (!div) return;
-            var current = Math.round(div.getBoundingClientRect().width);
-            var newWidth = Math.max(200, current - 20);
-            div.style.width = newWidth + 'px';
+            LarghezzaBox -= 20;
+            div.style.width = LarghezzaBox + 'px';
         }
+        function increaseFontSize() {
+            dimCarattere++;
+            document.getElementById('box').style.fontSize=dimCarattere +'px';
+        }
+        function decreaseFontSize() {
+            dimCarattere--;
+            document.getElementById('box').style.fontSize=dimCarattere +'px';
+        }
+        function resetBox() {
+            div.style.width = '400px';
+            div.style.height = '300px';
+            div.style.color = 'black';
+            div.innerText = '';
+        }
+        
     </script>
 </head>
 <body>
@@ -81,8 +94,13 @@
     <input type="button" value="Cambia Colore" onclick="changeColor()">
     <input type="button" value="Aumenta Larghezza" onclick="increaseWidth()">
     <input type="button" value="Diminuisci Larghezza" onclick="decreaseWidth()">
+    <input type="button" value="Allarga carattere" onclick="increaseFontSize()">
+    <input type="button" value="Diminuisci carattere" onclick="decreaseFontSize"><br><br>
+    <input type="button" value="Resetta Box" onclick="resetBox()"><br><br>
+    
     <div id="box" >
         <!-- Il messaggio apparirà qui -->
     </div><br>
+
 </body>    
 </html>
