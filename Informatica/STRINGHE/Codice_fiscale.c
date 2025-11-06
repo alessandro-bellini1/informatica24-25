@@ -33,25 +33,18 @@ int validazioneCognome(Stringa cognome){
 }
 
 void letteraMese(Stringa mese){
-    int numeroMese = 0;
-    for(int i=0; i<2; i++){
-        numeroMese = mese[i] - '0' + numeroMese * 10; 
-    }
-    switch(numeroMese){
-        case 1: mese[0]='A';
-        case 2: mese[0]='B';
-        case 3: return 'C';
-        case 4: return 'D';
-        case 5: return 'E';
-        case 6: return 'H';
-        case 7: return 'L';
-        case 8: return 'M';
-        case 9: return 'P';
-        case 10: return 'R';
-        case 11: return 'S';
-        case 12: return 'T';
-        default: return '\0'; // Valore di errore
-    }
+    if (strcmp(mese, "01") == 0) mese[0] = 'A';
+    else if (strcmp(mese, "02") == 0) mese[0] = 'B';
+    else if (strcmp(mese, "03") == 0) mese[0] = 'C';
+    else if (strcmp(mese, "04") == 0) mese[0] = 'D';
+    else if (strcmp(mese, "05") == 0) mese[0] = 'E';
+    else if (strcmp(mese, "06") == 0) mese[0] = 'H';
+    else if (strcmp(mese, "07") == 0) mese[0] = 'L';
+    else if (strcmp(mese, "08") == 0) mese[0] = 'M';
+    else if (strcmp(mese, "09") == 0) mese[0] = 'P';
+    else if (strcmp(mese, "10") == 0) mese[0] = 'R';
+    else if (strcmp(mese, "11") == 0) mese[0] = 'S';
+    else if (strcmp(mese, "12") == 0) mese[0] = 'T';
 }
 
 
@@ -66,23 +59,75 @@ int validazioneData(Stringa data){
     return true; // Valido
 }
 
-
-void calcoloCodiceFiscale(Stringa codiceFiscale, Stringa nome, Stringa cognome, Stringa data, char sesso){
-    strncpy(codiceFiscale, cognome, 3);
-    codiceFiscale[3] = '\0';
-    strncat(codiceFiscale, nome, 3);
-    codiceFiscale[6] = '\0';
-    char barra='/';
-    strrchr(data, barra); //GG/MM/AAAA
-    codiceFiscale[8] = '\0';
-
-    Stringa giorno = (char*) malloc(3 * sizeof(char));
-    if(sesso == 'F'){
-        giorno[0]+= '4';
-        strncpy(giorno, data, 2);
-    } else {
-        strncpy(giorno, data, 2);
+void PrimeConsonantiCognome(Stringa cognome, Stringa risultato){
+    int count = 0;
+    for(int i=0; i<strlen(cognome) && count<3; i++){
+        if((cognome[i] >= 'A' && cognome[i] <= 'Z') || (cognome[i] >= 'a' && cognome[i] <= 'z')){
+            if(cognome[i]!='A' && cognome[i]!='E' && cognome[i]!='I' && cognome[i]!='O' && cognome[i]!='U' &&
+               cognome[i]!='a' && cognome[i]!='e' && cognome[i]!='i' && cognome[i]!='o' && cognome[i]!='u'){
+                risultato[count] = cognome[i];
+                count++;
+            }
+        }
     }
+    if(count<3){
+        //aggiunge la vocale del cognome se le consonanti sono meno di 3
+        for(int i=0; i<strlen(cognome) && count<3; i++){
+            if((cognome[i] >= 'A' && cognome[i] <= 'Z') || (cognome[i] >= 'a' && cognome[i] <= 'z')){
+                if(cognome[i]=='A' || cognome[i]=='E' || cognome[i]=='I' || cognome[i]=='O' || cognome[i]=='U' ||
+                   cognome[i]=='a' || cognome[i]=='e' || cognome[i]=='i' || cognome[i]=='o' || cognome[i]=='u'){
+                    risultato[count] = cognome[i];
+                    count++;
+                }   
+            }
+        }
+    }
+    risultato[3] = '\0';
+}
+
+
+void PrimeConsonantiNome(Stringa nome, Stringa risultato){
+    int count = 0;
+    for(int i=0; i<strlen(nome) && count<4; i++){
+        if((nome[i] >= 'A' && nome[i] <= 'Z') || (nome[i] >= 'a' && nome[i] <= 'z')){
+            if(nome[i]!='A' && nome[i]!='E' && nome[i]!='I' && nome[i]!='O' && nome[i]!='U' &&
+               nome[i]!='a' && nome[i]!='e' && nome[i]!='i' && nome[i]!='o' && nome[i]!='u'){
+                risultato[count] = nome[i];
+                count++;
+            }
+        }
+    }
+    if(count<3){
+        //aggiunge la vocale del nome se le consonanti sono meno di 3
+        for(int i=0; i<strlen(nome) && count<3; i++){
+            if((nome[i] >= 'A' && nome[i] <= 'Z') || (nome[i] >= 'a' && nome[i] <= 'z')){
+                if(nome[i]=='A' || nome[i]=='E' || nome[i]=='I' || nome[i]=='O' || nome[i]=='U' ||
+                   nome[i]=='a' || nome[i]=='e' || nome[i]=='i' || nome[i]=='o' || nome[i]=='u'){
+                    risultato[count] = nome[i];
+                    count++;
+                }   
+            }
+        }
+    }else if(count>3){
+        //se ci sono piu' di 3 consonanti prende la prima, la terza e la quarta
+        risultato[0] = risultato[0];
+        risultato[1] = risultato[2];
+        risultato[2] = risultato[3];
+    }
+
+    risultato[3] = '\0';
+}
+
+void calcoloGiorno(Stringa codiceFiscale, Stringa data, char sesso){
+    Stringa giorno = (char*) malloc(3 * sizeof(char));
+    //CONVERTI LA STRINGA  giorno IN INTERO
+    int numGiorno = atoi(data);
+    if(sesso == 'F'){
+        numGiorno += 40;
+    }
+}
+
+void calcoloCodiceFiscale(Stringa codiceFiscale, Stringa data, char sesso){
     
     Stringa mese = (char*) malloc(3 * sizeof(char));
     strncpy(mese, data + 3, 2);
@@ -98,9 +143,13 @@ void calcoloCodiceFiscale(Stringa codiceFiscale, Stringa nome, Stringa cognome, 
     letteraMese(mese);
     strcat(codiceFiscale, mese);
     codiceFiscale[11] = '\0';
-
-    strcat(codiceFiscale, giorno);
+    if(sesso != 'F'){
+    strncat(codiceFiscale, data, 2); //giorno
     codiceFiscale[13] = '\0';
+    }else{
+    
+    }
+    calcoloGiorno(codiceFiscale, data, sesso);
 
     char G186[] = "G186";
     strcat(codiceFiscale, G186); //Codice del comune di Ostiglia
@@ -114,6 +163,7 @@ int main(){
     Stringa data = (Stringa) malloc(11 * sizeof(char)); //GG/MM/AAAA + \0
     char sesso;
     Stringa codiceFiscale = (Stringa) malloc(16 * sizeof(char)); //15 caratteri + \0
+    Stringa risultato = (Stringa) malloc(4 * sizeof(char)); //3 caratteri + \0
 
     // Input e validazione del nome
     do{
@@ -138,12 +188,15 @@ int main(){
     printf("Inserisci il sesso (M/F): ");
     scanf(" %c", &sesso);
     }while(sesso != 'M' && sesso != 'F');
+    PrimeConsonantiCognome(cognome, risultato);
+    strncat(codiceFiscale, risultato, 3);
+    //svutamento stringa risultato per riutilizzarla
+    risultato[0] = '\0';
+    PrimeConsonantiNome(nome, risultato);
+    strncat(codiceFiscale, risultato, 3);
+    calcoloCodiceFiscale(codiceFiscale, data, sesso);
 
-    calcoloCodiceFiscale(codiceFiscale, nome, cognome, data, sesso);
-
-
-
-    printf("Codice Fiscale calcolato: \n", codiceFiscale);
+    printf("Il codice fiscale e': %s\n", codiceFiscale);
 
     free(nome);
     free(cognome);
