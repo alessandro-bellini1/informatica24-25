@@ -3,16 +3,8 @@
     <head>
         <title>JavaScript Riempi Sfondo passando il mouse sull'immagine (onemouseover)</title>
         <script>
-            function cambiaColoreSfondo(){
-                document.body.style.backgroundColor = "lightblue";
-            }
-            function resetColoreSfondo(){
-                document.body.style.backgroundColor = "white";
-            }
-            window.onload = function(){
-                var img = document.getElementById("immagine");
-                img.onmouseover = cambiaColoreSfondo;
-                img.onmouseout = resetColoreSfondo;
+            function RiempiSfondo(colore){
+                document.body.style.backgroundColor = colore;
             }
         </script>
         <style>
@@ -35,6 +27,6 @@
             <area shape="rect" coords="50,20, 250,180" href="#" alt="Rettangolo">
         </map>
         <h1>Riempi Sfondo passando il mouse sull'immagine</h1>
-        <img id="immagine" src="../../immagini/Forme.png" usemap="#Triangolo" usemap="#Rettangolo">
+        <img id="immagine" src="../../immagini/Forme.png" usemap="#Triangolo" usemap="#Rettangolo" alt="Immagine con forme" onmouseover="RiempiSfondo('lightblue');" onmouseout="RiempiSfondo('white');">
     </body>
 </html>
