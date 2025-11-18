@@ -14,6 +14,13 @@ void stringaFlip(Stringa s, int len){
     }
 }
 
+void azzeraStringa(Stringa s, int *len){
+    for(int i=0; i<*len; i++){
+        s[i]='\0';
+    }
+    *len=0;
+}
+
 int main(){
     int scelta=0;
     do{
@@ -25,12 +32,14 @@ int main(){
         
         switch(scelta){
             case 1:
+            
             Stringa str=malloc(sizeof(char));
             int len=strlen(str);
             if(str==NULL){
                 printf("Errore di allocazione \n");
                 exit(1);
             }
+            azzeraStringa(str, &len);
                 printf("Inserisci una stringa: ");
                 int c;
                 while ((c = getchar()) != '\n'){}
