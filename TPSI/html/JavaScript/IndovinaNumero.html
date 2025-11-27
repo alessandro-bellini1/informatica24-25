@@ -6,11 +6,48 @@ QUANDO E' GIUSTO SI COLORA DI VERDE-->
         <head><title>INDOVINA IL NUMERO</title>
             <style>
                 #colore {
-                    width: 300px;
-                    height: 100px;
-                    border: 1px solid black;
+                    width: 450px;
+                    max-width: 90%;
+                    min-height: 140px;
+                    border: 2px solid #000;
+                    background: #fff;
+                    display: flex;                 /* contenuto centrato internamente */
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;                     /* spazio tra elementi */
+                    padding: 16px;
                     text-align: center;
-                    line-height: 100px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+                    border-radius: 6px;
+                }
+
+                #colore input[type="number"] {
+                width: 80%;
+                padding: 6px;
+                box-sizing: border-box;
+                }
+
+                #colore input[type="button"] {
+                padding: 6px 10px;
+                cursor: pointer;
+                }
+
+                .label-box {
+                    color: #ffffff;
+                    display: inline-block;
+                    padding: 6px 12px;
+                    border: 2px solid #ffffff;    /* colore e spessore del contorno */
+                    border-radius: 6px;        /* arrotonda gli angoli (opzionale) */
+                    background: rgb(0, 0, 0);
+                    font-weight: 600;
+                }
+
+                body {
+                    display: flex;                 /* centro tutto nella pagina */
+                    align-items: center;           /* centratura verticale */
+                    justify-content: center;       /* centratura orizzontale */
+                    background: #068a3b;         /* sfondo leggero (opzionale) */
                 }
             </style>
             <script>
@@ -28,11 +65,22 @@ QUANDO E' GIUSTO SI COLORA DI VERDE-->
                         colore.style.backgroundColor = "red";
                     }
                 };
-                </script>
+
+                function resetta() {
+                    document.getElementById("num1").value = "";
+                    document.getElementById("colore").style.backgroundColor = "white";
+                }
+
+            </script>
         </head>
         <body>
-            <input type="number" id="num1" placeholder="Inserisci il primo numero" name="num1">
-            <input type="button" value="Indovina il numero" onclick="indovina();"><br><br>
-            <div id="colore">Indovina un numero tra 1 e 100</div>
+			<div id="colore">
+                <span class="label-box"><h2>INDOVINA UN NUMERO <br> TRA 1 E 100</h2> </span>
+				<input type="number" id="num1" placeholder="Inserisci il primo numero" name="num1">
+				<input type="button" value="VERIFICA NUMERO" onclick="indovina();"><br>
+                <input type="button" value="RESET" onclick="resetta();"><br><br>
+			</div>
+            
+            
         </body>
     </html>
