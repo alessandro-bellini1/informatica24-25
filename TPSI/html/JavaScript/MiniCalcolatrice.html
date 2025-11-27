@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html>
         <head><title>INDOVINA IL NUMERO</title>
-            <link rel="stylesheet" href="./MiniCalcolatrice.CSS">
+            <link rel="stylesheet" href="../CSS/MiniCalcolatrice.CSS">
             <script>
+                function AggiungiNumero(num) {
+                    document.getElementById("Risultato").innerText += num;
+                }
+
+                function AggiungiOperatore(op) {
+                    const risultato = document.getElementById("Risultato").innerText;
+                    const lastChar = risultato.charAt(risultato.length - 1);
+                    if ("+-*/".includes(lastChar)) {
+                        // Sostituisci l'operatore se l'ultimo carattere è già un operatore
+                        document.getElementById("Risultato").innerText = risultato.slice(0, -1) + op;
+                    } else {
+                        document.getElementById("Risultato").innerText += op;
+                    }
+                }
+
+                function Pulisci() {
+                    document.getElementById("Risultato").innerText = "";
+                }
+
+                function Calcola() {
+                    const espressione = document.getElementById("Risultato").innerText;
+                    try {
+                        const risultato = eval(espressione);
+                        document.getElementById("Risultato").innerText = risultato;
+                    } catch (e) {
+                        document.getElementById("Risultato").innerText = "Errore";
+                    }
+                }
             </script>
         </head>
     <body>   
-        <div id="Calcolatrice"> 
+        <div id="Calcolatrice">
+            <div id="Risultato"></div>
+            <div id="Tasti">
+                <input type="button" value="7" onclick="AggiungiNumero('7')" class="Button">
+                <input type="button" value="8" onclick="AggiungiNumero('8')" class="Button">
+                <input type="button" value="9" onclick="AggiungiNumero('9')" class="Button">
+                <input type="button" value="/" onclick="AggiungiOperatore('/')" class="Button">
+                <br>
+                <input type="button" value="4" onclick="AggiungiNumero('4')" class="Button">
+                <input type="button" value="5" onclick="AggiungiNumero('5')" class="Button">
+                <input type="button" value="6" onclick="AggiungiNumero('6')" class="Button">
+                <input type="button" value="*" onclick="AggiungiOperatore('*')" class="Button">
+                <br>
+                <input type="button" value="1" onclick="AggiungiNumero('1')" class="Button">
+                <input type="button" value="2" onclick="AggiungiNumero('2')" class="Button">
+                <input type="button" value="3" onclick="AggiungiNumero('3')" class="Button">
+                <input type="button" value="-" onclick="AggiungiOperatore('-')" class="Button">
+                <br>
+                <input type="button" value="." onclick="AggiungiNumero('.')" class="Button">
+                <input type="button" value="0" onclick="AggiungiNumero('0')" class="Button">
+                <input type="button" value="C" onclick="Pulisci()" class="Button">
+                <input type="button" value="+" onclick="AggiungiOperatore('+')" class="Button">
+                <input type="button" value="=" onclick="Calcola()" class="Button">
+            </div>
+        </div>
     </body>
 </html>
 
