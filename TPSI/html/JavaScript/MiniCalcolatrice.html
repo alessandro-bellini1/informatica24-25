@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
-        <head><title>INDOVINA IL NUMERO</title>
+        <head><title>CALCOLA NUMERI</title>
             <link rel="stylesheet" href="../CSS/MiniCalcolatrice.CSS">
             <script>
+
+                function TasterinoNumerico() {
+                    document.getElementById("Display").focus();
+                }
+
                 function AggiungiNumero(num) {
                     document.getElementById("Risultato").innerText += num;
+                    const risultato = document.getElementById("Risultato").innerText;
+                    const lastChar = risultato.charAt(risultato.length - 1);
+                    // Controlla se l'ultimo carattere è un punto decimale
+                    if (lastChar === '.') {
+                        // Verifica se c'è già un punto decimale nell'ultima parte del numero
+                        const parts = risultato.split(/[\+\-\*\/]/);
+                        const lastPart = parts[parts.length - 1];
+                        if ((lastPart.match(/\./g) || []).length > 1) {
+                            // Rimuovi l'ultimo punto decimale aggiunto
+                            document.getElementById("Risultato").innerText = risultato.slice(0, -1);
+                        }
+                    }
                 }
 
                 function AggiungiOperatore(op) {
@@ -31,11 +48,65 @@
                         document.getElementById("Risultato").innerText = "Errore";
                     }
                 }
+
+                // Keyboard handler: mappa i tasti fisici alle funzioni della calcolatrice
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.addEventListener('keydown', function (e) {
+                        const key = e.key;
+                        const resEl = document.getElementById('Risultato');
+                        if (!resEl) return;
+
+                        // numeri 0-9
+                        if (/^[0-9]$/.test(key)) {
+                            e.preventDefault();
+                            AggiungiNumero(key);
+                            return;
+                        }
+
+                        // punto decimale
+                        if (key === '.') {
+                            e.preventDefault();
+                            AggiungiNumero('.');
+                            return;
+                        }
+
+                        // operatori
+                        if (['+','-','*','/'].includes(key)) {
+                            e.preventDefault();
+                            AggiungiOperatore(key);
+                            return;
+                        }
+
+                        // Enter -> calcola
+                        if (key === 'Enter') {
+                            e.preventDefault();
+                            Calcola();
+                            return;
+                        }
+
+                        // Backspace -> elimina ultimo carattere
+                        if (key === 'Backspace') {
+                            e.preventDefault();
+                            const txt = resEl.innerText || '';
+                            resEl.innerText = txt.slice(0, -1);
+                            return;
+                        }
+
+                        // Escape o C -> pulisci
+                        if (key === 'Escape' || key === 'c' || key === 'C') {
+                            e.preventDefault();
+                            Pulisci();
+                            return;
+                        }
+                    });
+                });
             </script>
         </head>
     <body>   
         <div id="Calcolatrice">
-            <div id="Risultato"></div>
+            <div id="Risultato">
+                <input type="text" id="Display" onclick="TasterinoNumerico()">
+            </div>
             <div id="Tasti">
                 <input type="button" value="7" onclick="AggiungiNumero('7')" class="Button">
                 <input type="button" value="8" onclick="AggiungiNumero('8')" class="Button">
