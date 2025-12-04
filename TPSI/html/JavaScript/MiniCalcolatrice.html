@@ -8,6 +8,17 @@
                     document.getElementById("Display").focus();
                 }
 
+                
+
+                function PuntoDopo3Numeri() {
+                    const risultato = document.getElementById("Risultato").innerText;
+                    const parts = risultato.split(/[\+\-\*\/]/);
+                    const lastPart = parts[parts.length - 1];
+                    if (lastPart.length === 3 && !lastPart.includes('.')) {
+                        document.getElementById("Risultato").innerText += '.';
+                    }
+                }
+
                 function AggiungiNumero(num) {
                     document.getElementById("Risultato").innerText += num;
                     const risultato = document.getElementById("Risultato").innerText;
@@ -100,6 +111,14 @@
                         }
                     });
                 });
+                
+                function limiteNumeri(){
+                    const risultato = document.getElementById("Risultato").innerText;
+                    if (risultato.length >= 16) {
+                        
+                    }
+                }
+
             </script>
         </head>
     <body>   
