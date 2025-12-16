@@ -106,7 +106,7 @@ void inserisci_canzone_playlist(Lista *lista, Lista *playlist) {
     }
     if (playlist->testa == NULL) {
         playlist->testa = temp;
-        temp->next_playlist = temp;  // Punta a se stesso
+        temp->next_playlist = temp;
     } else {
         Canzone* current = lista->testa;
         while (current->next_playlist != playlist->testa) {
@@ -177,7 +177,7 @@ int main() {
     char artista[50];
 
     do {
-        printf("\n===== SPOTIFY 0.0.0.1 =====\n");
+        printf("\n-|SPOTIFY|-\n");
         printf("1. Inserisci nuova canzone nella lista\n");
         printf("2. Stampa lista canzoni\n");
         printf("3. Cerca canzoni per artista\n");
