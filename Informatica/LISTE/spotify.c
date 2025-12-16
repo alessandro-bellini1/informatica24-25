@@ -22,7 +22,7 @@ int id_univoco = 0;
 
 /* FUNZIONI PER GESTIRE LE CANZONI */
 void stampa_canzone(Canzone *c) {
-    printf("%s di %s - %d secondi\n", c->titolo, c->artista, c->durata);
+    printf("%s di %s - %d secondi\n il suo id: %d\n", c->titolo, c->artista, c->durata, c->id);
 }
 
 void set_canzone(Canzone *c) {
