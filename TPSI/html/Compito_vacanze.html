@@ -1,0 +1,56 @@
+<!--Inserire due numeri all'interno di due input type ed eseguirne la somma. Prevedere un ulteriore pulsante tale che
+a secondo che la somma risulta essere pari o dispari verrà colorato lo sfondo della div, in cui visualizzeremo il risultato,
+in due colori diversi; in un alert invece verrà comunicato se il valore è pari o dispari.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Somma Pari o Dispari</title>
+        <style>
+            #result {
+                width: 200px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                margin-top: 20px;
+                border: 1px solid #000000;
+                font-size: 30px;
+                font-weight: bold;
+                color: #ffffff7c;
+                -webkit-text-stroke: 1px black;
+            }
+        </style>
+
+        <script>
+            function calcolaSomma() {
+                const num1 = document.getElementById("num1");
+                const num2 = document.getElementById("num2");
+                const risultatoDiv = document.getElementById("result");
+                const somma = parseInt(num1.value) + parseInt(num2.value);
+                risultatoDiv.textContent = "Somma: " + somma;
+            }
+
+            function verificaPariDispari() {
+                const num1 = document.getElementById("num1");
+                const num2 = document.getElementById("num2");
+                const somma = parseInt(num1.value) + parseInt(num2.value);
+                const resultDiv = document.getElementById("result");
+                if (somma % 2 === 0) {
+                    resultDiv.style.backgroundColor = "lightblue";
+                    alert("La somma è PARI");
+                } else {
+                    resultDiv.style.backgroundColor = "lightcoral";
+                    alert("La somma è DISPARI");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Calcolo Somma Pari o Dispari</h1>
+        <input type="number" id="num1" placeholder="Inserisci primo numero">
+        <input type="number" id="num2" placeholder="Inserisci secondo numero">
+        <button onclick="calcolaSomma()">Calcola Somma</button>
+        <button onclick="verificaPariDispari()">Verifica Pari o Dispari</button>
+        <div id="result">Risultato qui</div>
+    </body>
+</html>
