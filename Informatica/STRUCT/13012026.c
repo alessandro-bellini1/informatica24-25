@@ -63,16 +63,7 @@ int main(){
     libri[3].anno = 1813;
     libri[3].prezzo = 9.99;
 
-    //visualizzazione dei dati
-    printf("===|Elenco libri|===\n");
-    for (int i=0; i<n; i++){
-        printf("Libro %d:\n", i+1);
-        printf("Titolo: %s\n", libri[i].titolo);
-        printf("Autore: %s\n", libri[i].autore);
-        printf("Anno: %d\n", libri[i].anno);
-        printf("Prezzo: %.2f\n", libri[i].prezzo);
-        printf("-------------------\n");
-    }
+   
     //calcolo il libro più datato
     datato = libri[0].anno;
     i_datato = 0;
@@ -109,12 +100,11 @@ int main(){
     //rimuovo il carattere di newline
     len = strlen(titolo_elimina);
     compatta(titolo_elimina, len);
-    
-    int trovato = 0;
+
     int i=0;
     for(i=0; i<n; i++){
-        if (strcmp(libri[i].titolo, titolo_elimina) == trovato){
-            trovato = 1;
+        if (!strcmp(libri[i].titolo, titolo_elimina)){
+            
             //sposto tutti gli elementi successivi di una posizione indietro
             for (int j=i; j<n-1; j++){
                 libri[j] = libri[j+1];
@@ -129,13 +119,20 @@ int main(){
             break;
         }
     }
-    if (!trovato){
+    if (i == n){
         printf("Libro non trovato.\n");
     }
-    
 
-
-
+     //visualizzazione dei dati
+    printf("\n===|Elenco libri|===\n");
+    for (int i=0; i<n; i++){
+        printf("Libro %d:\n", i+1);
+        printf("Titolo: %s\n", libri[i].titolo);
+        printf("Autore: %s\n", libri[i].autore);
+        printf("Anno: %d\n", libri[i].anno);
+        printf("Prezzo: %.2f\n", libri[i].prezzo);
+        printf("-------------------\n");
+    }
 
     return 0;
 }
