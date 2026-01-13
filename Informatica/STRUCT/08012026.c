@@ -14,72 +14,77 @@ typedef struct{
     char Nome[20];
     char classe[3];
     int matricola; //1000-9999
+    int n_cert; //numero di certificazioni conseguite
 } studente;
 
-typedef struct{
+
+
+typedef struct {
     int matricola;
     struct esame{
         char corso[30];
         int livello; //(1-3)
-    };
+    }esame[5];
 } certificazioni;
 
-void CreaStudente(studente S[]){
-    for(int i=0; i<5; i++){
-        printf("Inserisci Cognome: ");
-        scanf("%s", S[i].Cognome);
-        printf("Inserisci Nome: ");
-        scanf("%s", S[i].Nome);
-        printf("Inserisci Classe: ");
-        scanf("%s", S[i].classe);
-        S[i].matricola = rand() % 9000 + 1000; //matricola casuale tra 1000 e 9999
-    }
-}
-void AssegnaCertificazioni(studente S[]){
-    certificazioni C[5][10]; //massimo 10 certificazioni per studente
-    for(int i=0; i<5; i++){
-        int numCertificazioni = rand() % 11; //da 0 a 10 certificazioni
-        for(int j=0; j<numCertificazioni; j++){
-            C[i][j].matricola = S[i].matricola;
-            sprintf(C[i][j].corso, "Corso_%d", j+1);
-            C[i][j].livello = rand() % 3 + 1; //livello tra 1 e 3
-        }
-    }
-}
-void CercaStudenteConPiuCertificazioni(studente S[]){
-    certificazioni C[5][10];
-    int maxCertificazioni = -1;
-    int indiceStudente = -1;
-    for(int i=0; i<5; i++){
-        int count = 0;
-        for(int j=0; j<10; j++){
-            if(C[i][j].matricola == S[i].matricola){
-                count++;
-            }
-        }
-        if(count > maxCertificazioni){
-            maxCertificazioni = count;
-            indiceStudente = i;
-        }
-    }
-    if(indiceStudente != -1){
-        printf("Lo studente con più certificazioni è %s %s con %d certificazioni.\n", S[indiceStudente].Nome, S[indiceStudente].Cognome, maxCertificazioni);
-    } else {
-        printf("Nessuno studente ha certificazioni.\n");
-    }
-}
+
 
 int main(){
-    studente S[5];
-    CreaStudente(S);
-    AssegnaCertificazioni(S);
-    int n;
-    while(n!=0){
-        printf("Premi 1 per cercare lo studente con più certificazioni, 0 per uscire: ");
-        scanf("%d", &n);
-        if(n==1){
-            CercaStudenteConPiuCertificazioni(S);
-        }
+    studente* studente = malloc(3 * sizeof(studente));
+    certificazioni* cert = malloc(3 * sizeof(certificazioni));
+    //inseriamo i dati degli studenti
+    strcpy(studente[0].Cognome, "Rossi");
+    strcpy(studente[0].Nome, "Roberto");
+    strcpy(studente[0].classe, "4I");
+    studente[0].matricola = 123;
+    studente[0].n_cert = 0;
+
+    strcpy(studente[1].Cognome, "Verdi");
+    strcpy(studente[1].Nome, "Carlo");
+    strcpy(studente[1].classe, "3A");
+    studente[1].matricola = 456;
+    studente[1].n_cert = 0;
+
+    strcpy(studente[2].Cognome, "Gialli");
+    strcpy(studente[2].Nome, "Sofia");
+    strcpy(studente[2].classe, "5B");
+    studente[2].matricola = 789;
+    studente[2].n_cert = 0;
+
+    //inseriamo i dati delle certificazioni
+    cert[0].matricola = 123;
+    strcpy(cert[0].esame.corso, "Inglese");
+    cert[0].esame.livello = 2;
+
+    cert[1].matricola = 456;
+    strcpy(cert[1].esame.corso, "Spagnolo");
+    cert[1].esame.livello = 1;
+    
+    cert[2].matricola = 789;
+    strcpy(cert[2].esame.corso, "Francese");
+    cert[2].esame.livello = 3;
+    strcpy(cert[2].esame.corso, "Tedesco");
+    cert[2].esame.livello = 2;
+
+    //visualizzaziùone dati degli studenti
+    printf("\n===|LISTA STUDENTI|===\n");
+    for(int i=0; i<3; i++){
+        printf("Cognome: %s\n", studente[i].Cognome);
+        printf("Nome: %s\n", studente[i].Nome);
+        printf("Classe: %s\n", studente[i].classe);
+        printf("Matricola: %d\n", studente[i].matricola);
+        printf("Numero certificazioni: %d\n", studente[i].n_cert);
+        printf("----------------------\n");
     }
+
+    //visualizzare le informazioni riguardo le certificazioni
+    printf("\n===|CERTIFICAZIONI STUDENTI|===\n");
+    for(int i=0; i<3; i++){
+        
+        
+
+    free(studente);
+    free(cert);
+    
     return 0;
 }
