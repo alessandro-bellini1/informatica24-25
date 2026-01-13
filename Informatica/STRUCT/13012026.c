@@ -133,6 +133,9 @@ int main(){
         printf("Prezzo: %.2f\n", libri[i].prezzo);
         printf("-------------------\n");
     }
+    
+    free(libri);
+    free(titolo_elimina);
 
     return 0;
 }
