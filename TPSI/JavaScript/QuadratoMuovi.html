@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="../CSS/QuadratoMuovi.CSS">
+    <head>
+        <script>
+            let moved = false;
+            function moveBox() {
+                const box = document.getElementById("box");
+                
+                // Muovi il quadrato di 100px a destra e torna indietro alla posizione iniziale
+                if (!moved) {
+                    box.style.left = "200px";
+                    moved = true;
+                } else {
+                    box.style.left = "0px";
+                    moved = false;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="box" id="box"></div>
+        <button onclick="moveBox();">Muovi</button>
+    </body>
+</html>
