@@ -16,6 +16,9 @@ void OrdinaFile(char* nome){
     while(fscanf(f, "%d", &vett[n]) == 1){
         n++;
     }
+
+    fclose(f);
+    
     // Ordina il vettore in senso decrescente con il bubble sort
     for(int i = 0; i < n - 1; i++){
         for(int j = i + 1; j < n; j++){
@@ -32,7 +35,7 @@ void OrdinaFile(char* nome){
         printf("%d \n", vett[i]);
     }
 
-    fclose(f);
+    
 }
 
 int main(){
