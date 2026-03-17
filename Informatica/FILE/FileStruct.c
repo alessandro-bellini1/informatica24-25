@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {
     char nome[20];
@@ -12,16 +13,16 @@ Persona AggiungiPersona(Persona* P){
         return *P;
     }
     printf("Inserisci nome: ");
-    scanf("%s", P.nome);
+    scanf("%s", P->nome);
     printf("Inserisci cognome: ");
-    scanf("%s", P.cognome);
+    scanf("%s", P->cognome);
     printf("Inserisci eta: ");
-    scanf("%d", &P.eta);
-    return P;
+    scanf("%d", &P->eta);
+    return *P;
 }
 
 int main(){
-    Persona*P = malloc(sizeof(Persona));
+    Persona*P = (Persona*) malloc(sizeof(Persona));
     if(P == NULL){
         printf("Errore nell'allocazione della memoria\n");
         return 1;
@@ -34,10 +35,10 @@ int main(){
     }
     
     *P = AggiungiPersona(P);
-    fprintf(f, "%s %s %d\n", P.nome, P.cognome, P.eta);
+    fprintf(f, "%s %s %d\n", P->nome, P->cognome, P->eta);
 
-    fscanf(f, "%s %s %d", P.nome, P.cognome, &P.eta);
-    printf("Dati letti dal file:\n Nome: %s\n Cognome: %s\n Età: %d\n", P.nome, P.cognome, P.eta);
+    fscanf(f, "%s %s %d", P->nome, P->cognome, &P->eta);
+    printf("Dati letti dal file:\n Nome: %s\n Cognome: %s\n Età: %d\n", P->nome, P->cognome, P->eta);
     fclose(f);
     
     return 0;
