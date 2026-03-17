@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main(){
-    FILE *f = fopen("dati.txt", "w");
+    FILE *f = fopen("dati.txt", "w");//se esiste già, sovrascrive, altrimenti lo crea
     if(f == NULL){
         printf("Errore nell'apertura del file\n");
         return 1;
