@@ -30,12 +30,23 @@ void OrdinaFile(char* nome){
         }
     }
 
-    printf("Numeri ordinati in senso decrescente:\n");
-    for(int i = 0; i < n; i++){
-        printf("%d \n", vett[i]);
+    f = fopen(nome, "w");
+    if(f == NULL){
+        printf("Errore nell'apertura del file");
+        exit(1);
     }
+    for(int i = 0; i < n; i++){
+        fprintf(f, "%d ", vett[i]);
+    }
+    fclose(f);
 
-    
+    printf("File ordinato in senso decrescente con successo!\n");
+    printf("Vettore ordinato: ");
+    for(int i = 0; i < n; i++){
+        printf("%d ", vett[i]);
+    }
+    printf("\n");
+
 }
 
 int main(){
