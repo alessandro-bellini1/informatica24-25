@@ -40,7 +40,6 @@ void OrdinaFile(char* nome){
     }
     fclose(f);
 
-    printf("File ordinato in senso decrescente con successo!\n");
     printf("Vettore ordinato: ");
     for(int i = 0; i < n; i++){
         printf("%d ", vett[i]);
