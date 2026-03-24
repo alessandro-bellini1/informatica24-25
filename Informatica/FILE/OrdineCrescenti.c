@@ -41,7 +41,7 @@ void OrdinaFile(char* nome){
 int main(){
     char nome[20];
 
-    printf("Inserisci il nome del file: ");
+    printf("Inserisci il nome del file: (numeri.txt)\n");
     scanf("%s", nome);
 
     OrdinaFile(nome);
