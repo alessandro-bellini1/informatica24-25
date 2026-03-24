@@ -1,3 +1,2 @@
-Studente 1: a, Età: 4, Media Voti: 8.00
-Studente 2: b, Età: 8, Media Voti: 0.23
-Studente 3: c, Età: 6, Media Voti: 6.00
+Studente 1: a, Età: 2, Media Voti: 8.00
+Studente 2: b, Età: 2, Media Voti: 8.50
