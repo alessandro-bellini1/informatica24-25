@@ -1,2 +1,0 @@
-Studente 1: a, Età: 2, Media Voti: 8.00
-Studente 2: b, Età: 2, Media Voti: 8.50
