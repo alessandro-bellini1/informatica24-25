@@ -42,7 +42,7 @@ void aggiungiProdotto(){
 }
 
 void modificaPrezzo(){
-    FILE *fp = fopen("prodotti.dat", "r+b");
+    FILE *fp = fopen("prodotti.dat", "rb+");
     if(fp == NULL){
         printf("Errore apertura file!\n");
         return;
