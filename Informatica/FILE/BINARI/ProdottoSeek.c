@@ -55,7 +55,7 @@ void modificaPrezzo(){
 
     Prodotto p;
     int trovato = 0;
-
+    // Scorre il file per trovare il prodotto con l'ID specificato
     while(fread(&p, sizeof(Prodotto), 1, fp) == 1){
         if(p.ID == idRicercato){
             printf("Prodotto trovato: %s, Prezzo attuale: %.2f\n", p.nome, p.prezzo);
