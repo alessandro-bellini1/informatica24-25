@@ -39,6 +39,10 @@ void eliminaContatto() {
     printf("Inserisci nome del contatto da eliminare: ");
     scanf(" %[^\n]", nome);
     getchar();
+    printf("inserisci il numero di telefono del contatto da eliminare: ");
+    char telefono[15];
+    scanf(" %[^\n]", telefono);
+    getchar();
 
     FILE *fp = fopen("rubrica.dat", "rb");
     if (fp == NULL) {
@@ -56,7 +60,7 @@ void eliminaContatto() {
     Contatto c;
     int trovato = 0;
     while (fread(&c, sizeof(Contatto), 1, fp) == 1) {
-        if (strcmp(c.nome, nome) != 0) {
+        if (strcmp(c.nome, nome) != 0 || strcmp(c.telefono, telefono) != 0) {
             fwrite(&c, sizeof(Contatto), 1, temp);// scrivo solo i contatti che non corrispondono al nome da eliminare
         } else {
             trovato = 1;
