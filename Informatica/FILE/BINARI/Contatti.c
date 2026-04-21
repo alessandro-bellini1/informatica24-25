@@ -105,6 +105,20 @@ void separaContatti() {
     fclose(femmine);
 
     printf("Contatti separati in maschi.dat e femmine.dat!\n");
+
+    maschi = fopen("maschi.dat", "rb");
+    femmine = fopen("femmine.dat", "rb");
+
+    printf("\n--- Contatti Maschi ---\n");
+    while (fread(&c, sizeof(Contatto), 1, maschi) == 1) {
+        printf("Nome: %s, Telefono: %s\n", c.nome, c.telefono);
+    }
+    printf("-----------------------\n");
+    printf("\n--- Contatti Femmine ---\n");
+    while (fread(&c, sizeof(Contatto), 1, femmine) == 1) {
+        printf("Nome: %s, Telefono: %s\n", c.nome, c.telefono);
+    }
+    printf("-------------------------\n");
 }
 
 void visualizzaRubrica() {
