@@ -198,13 +198,14 @@ int main(){
         int scelta;
     
         do{
-                printf("\n--- Gestione Biblioteca ---\n");
+                printf("\n===|Gestione Biblioteca|===\n");
                 printf("1. Aggiungi libro\n");
                 printf("2. Cerca libro\n");
                 printf("3. Cancella libro\n");
                 printf("4. Modifica ISBN\n");
                 printf("5. Separa libri\n");
                 printf("0. Esci\n");
+                printf("==============================\n");
                 printf("Scegli un'opzione: ");
                 scanf("%d", &scelta);
     
